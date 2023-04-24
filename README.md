@@ -1,1 +1,1 @@
-# Bioinform-tica
+# Bioinformática
