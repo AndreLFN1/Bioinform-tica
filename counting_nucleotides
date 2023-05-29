@@ -1,0 +1,44 @@
+#This is a resolution for a exercice on https://rosalind.info/problems/list-view/
+
+#The main idea is to generate a program able to count the number of nucleotides in a sequence. 
+#I have made it to count a sequence wrote by the user or taken from a .txt file. 
+#******************************************************************
+
+
+#This general purpose function counts the nucleotides in a string looking for G, C, A and T
+def counting_nucleotides(sequence):
+    
+    sequence = sequence.upper() #formating
+    
+    #validation: further coding intending to not let the user put other things than nucleotides in the sequence
+    
+    #defining the dictionary and the nucleotide list for the next loop
+    dic_nuc = {'C' : 0, 'G' : 0 , 'A': 0, 'T' : 0}
+    list_nuc = ['C', 'G', 'A', 'T']
+    
+    #this loop intends to intends to add the number of C, T, A and G to the dic_nuc dictionary
+    i = 0
+    while i< len(list_nuc):
+        dic_nuc[f'{list_nuc[i]}'] = sequence.count(f'{list_nuc[i]}')
+        i += 1
+    print(dic_nuc)
+
+
+#starting the program
+print('Welcome! This program is built to count your nucleotides. ')
+
+#asking the user
+choice = int(input('Type 1 to enter the .txt file pathway or 2 to paste your sequence: '))
+
+if choice == 1:
+    dir_pathway = input('Type the file pathway. If it is already on this program file, just type <filename.txt>: ')
+    file = open(f"{dir_pathway}", 'r')
+    sequence_nuc = file.read()
+elif choice == 2: 
+    sequence_nuc = input('Paste your sequence here: ')
+
+counting_nucleotides(sequence_nuc)
+
+if choice == 1: 
+  file.close()
+
