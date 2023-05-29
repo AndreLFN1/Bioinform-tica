@@ -1,0 +1,43 @@
+'''This program intends to produce a
+DNA complementary string, taking into
+account the translation and 5' 3' inversion.
+'''
+def compl_dna(sequence):
+      sequence = sequence.upper()
+      seq = sequence[::-1] #inverted sequence
+      seq = list(seq)
+
+
+      i = 0
+      for nuc in seq:
+            if seq[i] == 'G':
+                  seq[i] = 'C'
+            elif seq[i] == 'C':
+                  seq[i] = 'G'
+            elif seq[i] == 'T':
+                  seq[i] = 'A'
+            elif seq[i] == 'A':
+                  seq[i] = 'T'
+            i += 1
+      
+      print(f'{seq}')
+
+#starting the program
+print('Welcome! This program will give you the complementary DNA strand to your data. ')
+
+#asking the user
+choice = int(input('Type 1 to enter the .txt file pathway or 2 to paste your sequence: '))
+
+if choice == 1:
+    dir_pathway = input('Type the file pathway. If it is already on this program file, just type <filename.txt>: ')
+    file = open(f"{dir_pathway}", 'r')
+    sequence_nuc = file.read()
+elif choice == 2: 
+    sequence_nuc = input('Paste your sequence here: ')
+
+compl_dna(sequence_nuc)
+
+if choice == 1: 
+  file.close()
+
+
