@@ -5,5 +5,4 @@ my plan is to add some data science stuff as well, when I learn it properly (or 
 
 
 
-##1) 
-The first code I have added was my solution for a counting nucleotide problem at https://rosalind.info/problems/dna/ . It's a general purpose program to count nucleotides within a .txt file or given by the user in python. 
+1) The first code I have added was my solution for a counting nucleotide problem at https://rosalind.info/problems/dna/ . It's a general purpose program to count nucleotides within a .txt file or given by the user in python. 
