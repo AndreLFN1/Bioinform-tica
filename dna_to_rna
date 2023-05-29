@@ -1,0 +1,28 @@
+#This is a general purpose program to translate a DNA into a RNA strand.
+#The exercice can be found here: https://rosalind.info/problems/rna/
+#The user can either paste a DNA sequence or give the .txt file pathway to it. 
+
+def transcribing_sequence(sequence):
+    #formating the sequence and changing T for U:
+    sequence = sequence.upper()
+    transcribed_sequence = sequence.replace('T', 'U')
+    print(transcribed_sequence)
+
+
+#asking the user
+choice = int(input('Type 1 to enter the .txt file pathway or 2 to paste your sequence: '))
+
+#reading a file or the paste from the user 
+if choice == 1:
+    dir_pathway = input('Type the file pathway. If it is already on this program file, just type <filename.txt>: ')
+    file = open(f"{dir_pathway}", 'r')
+    sequence_nuc = file.read()
+elif choice == 2: 
+    sequence_nuc = input('Paste your sequence here: ')
+
+#calling the function
+transcribing_sequence(sequence_nuc)
+
+#closing the file
+if choice == 1: 
+  file.close()
