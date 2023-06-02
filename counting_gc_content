@@ -1,0 +1,57 @@
+#This program intends to read fast files with different gene sequences and give the GC content of each one of them 
+
+
+def counting_nucleotides(sequence):#This general purpose function counts the nucleotides in a string looking for G, C, A and T
+    
+    sequence = sequence.upper() #defining the dictionary and the nucleotide list for the next loop
+    
+    dic_nuc = {'C' : 0, 'G' : 0 , 'A': 0, 'T' : 0}
+    list_nuc = ['C', 'G', 'A', 'T']
+    
+    i = 0 #this loop updates our dictionary with the nucleotide counting
+    while i < len(list_nuc): 
+        dic_nuc[f'{list_nuc[i]}'] = sequence.count(f'{list_nuc[i]}')
+        i += 1
+    return dic_nuc
+
+def comp_gc_content(sequence_counting): #this function receives a counting nucleotide dictionary 
+	
+	gc_content = (sequence_counting['C'] + sequence_counting['G'])/(sequence_counting['C'] + sequence_counting['G'] + sequence_counting['T'] + sequence_counting['A']) 
+			
+	return gc_content
+
+
+
+
+dir_pathway = input('Type the file pathway. If it is already on this program file, just type <filename.txt>: ') #asking the user for the .txt file pathway 
+txt = open(f"{dir_pathway}", 'r')
+txt_file = txt.read()
+
+txt_strip = txt_file.split('>')
+txt_strip = txt_strip[1:]
+
+
+
+txt_list = [] #here the script splits the first \n (after que FASTA id), splitting these 2 informations 
+i = 0 
+for el in range (len(txt_strip)):
+	txt_list.append((txt_strip[i].split('\n',1)))
+	i += 1 
+	
+print(txt_list)
+
+id_gc_content = [] #put it inside a loop
+
+i = 0
+for ls in txt_list: #in this part the script puts side by side, in a list, the FASTA ID followed by the gc content. 
+ 
+	dic_nuc = counting_nucleotides(txt_list[i][1])
+	print(dic_nuc)
+	id_gc_content.append(txt_list[i][0])
+	id_gc_content.append(round(comp_gc_content(dic_nuc)*100,4))
+	i += 1
+
+print(id_gc_content)
+
+txt.close()
+
