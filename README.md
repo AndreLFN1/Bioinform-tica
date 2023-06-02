@@ -5,8 +5,10 @@ my plan is to add some data science stuff as well, when I learn it properly (or 
 
 
 
-1) The first code I have added was my solution for a counting nucleotide problem at https://rosalind.info/problems/dna/ . It's a general purpose program to count nucleotides within a .txt file or given by the user in python. 
+1) [counting_nucleotides.py] The first code I have added was my solution for a counting nucleotide problem at https://rosalind.info/problems/dna/ . It's a general purpose program to count nucleotides within a .txt file or given by the user in python. 
 
-2) The second code is the resolution of the exercie that can be find here: https://rosalind.info/problems/rna/ . The idea was pretty simple, just changing the T's on the code for U's. 
+2) [dna_to_rna] The second code is the resolution of the exercie that can be find here: https://rosalind.info/problems/rna/ . The idea was pretty simple, just changing the T's on the code for U's. 
 
-3) Now the game was put in a higher stantard. I had to solve how to make an inverted strant and at the same time, translate it. I have used slicing methods that I have learned just to it, and also came with the problem to translate the code without changing former changes. The challenge can be found here: https://rosalind.info/problems/revc/ . 
+3) [complementary_strand] Now the game was put in a higher stantard. I had to solve how to make an inverted strant and at the same time, translate it. I have used slicing methods that I have learned just to it, and also came with the problem to translate the code without changing former changes. The challenge can be found here: https://rosalind.info/problems/revc/ . 
+
+4) [counting_gc_content] Ok, this on was hard for me. The ideia is to read a FAST file (it is organized like this: ">'sequence_id"\n<sequence>"*n and the ideia was to isolate it, make the GC content calculation ((G + C) / (G + C + T + A) in a way that the user can know what sequence haas the biggest gc content. I know there are cleaner ways of solving it but this is what I can do in my current experience in python.  
